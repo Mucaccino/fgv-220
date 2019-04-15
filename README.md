@@ -1,27 +1,37 @@
-# FullstackApp
+# FVG-220
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
+Projeto de teste para FGV - back-end + front-end + (interface spa consumindo serviço dll)
+Murillo Loureiro do Carmo <murillodocarmo@gmail.com>
 
-## Development server
+## FVG-Core
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Contém o projeto C# compilando uma DLL com o núcleo do projeto
 
-## Code scaffolding
+## FVG-Console
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Contém um console com chamadas de testes
 
-## Build
+## FVG-Teste
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Contém os testes unutários do back-end em MSTest
 
-## Running unit tests
+## FVG-Front
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Contém o projeto em node.js para criação e desenvolvimento da interface Angular (adicional aos documentos de casos de uso, citado apenas no email)
 
-## Running end-to-end tests
+### npm run build
+> gera a interface compilada em /dist/fullstack-app
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## FVG-Web
 
-## Further help
+Contém o corpo para comunicação entre a aplicação angular e o serviço (conforme citado no e-mail, mesmo que abaixo indique como dica não criar uma webapi ou algo do tipo)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## FVG-WebSelfHost
+
+Contém projeto auxiliar com executável que auto-hosteia o core e o front do projeto (a separação entre web e webselfhost permite criar um host para iis baseado no web)
+
+> Necessário copiar manuamente o conteúdo compilado em /dist/fullstack-app para o diretório de saída (~/bin/Debug/fullstack-app ou ~/bin/Release/fullstack-app)
+
+## TODO
+
+* ao compilar o webselfhost copiar a pasta fullstack automaticamente para a saída

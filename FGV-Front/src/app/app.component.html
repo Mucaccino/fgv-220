@@ -1,0 +1,93 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Bem vindo ao {{ title }}!
+  </h1>
+  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+</div>
+
+<table mat-table [dataSource]="dataSource" class="book-table mat-elevation-z8" matSort style="display:none;">
+
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="title">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Título </th>
+    <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="author">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Autor </th>
+    <td mat-cell *matCellDef="let element"> {{element.author}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="edition">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Edição </th>
+    <td mat-cell *matCellDef="let element"> {{element.edition}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<table class="book-table mat-elevation-z8 mat-table">
+  <thead>
+      <tr class="mat-row ng-star-inserted">
+          <th class="mat-header-cell"><div class="mat-sort-header-container">Id 
+            <button class="mat-sort-header-button" (click)="orderer('id', $event)">
+              <span *ngIf="sortInfo('id DESC')" class="order-icon no"><i class="material-icons">arrow_downward</i></span>
+              <span *ngIf="sortInfo('id ASC')" class="order-icon desc hide"><i class="material-icons">arrow_upward</i></span>
+              <span *ngIf="!sortInfo('id')" class="order-icon asc hide"><i class="material-icons">unfold_more</i></span>
+            </button></div>
+          </th>
+          <th class="mat-header-cell"><div class="mat-sort-header-container">Título 
+            <button class="mat-sort-header-button" (click)="orderer('title', $event)">
+                <span *ngIf="sortInfo('title DESC')" class="order-icon no"><i class="material-icons">arrow_downward</i></span>
+                <span *ngIf="sortInfo('title ASC')" class="order-icon desc hide"><i class="material-icons">arrow_upward</i></span>
+                <span *ngIf="!sortInfo('title')" class="order-icon asc hide"><i class="material-icons">unfold_more</i></span>
+            </button></div>
+          </th>
+          <th class="mat-header-cell"><div class="mat-sort-header-container">Autor             
+            <button class="mat-sort-header-button" (click)="orderer('author', $event)">
+                <span *ngIf="sortInfo('author DESC')" class="order-icon no"><i class="material-icons">arrow_downward</i></span>
+                <span *ngIf="sortInfo('author ASC')" class="order-icon desc hide"><i class="material-icons">arrow_upward</i></span>
+                <span *ngIf="!sortInfo('author')" class="order-icon asc hide"><i class="material-icons">unfold_more</i></span>
+            </button></div>
+          </th>
+          <th class="mat-header-cell"><div class="mat-sort-header-container">Edição            
+            <button class="mat-sort-header-button" (click)="orderer('edition', $event)">
+                <span *ngIf="sortInfo('edition DESC')" class="order-icon no"><i class="material-icons">arrow_downward</i></span>
+                <span *ngIf="sortInfo('edition ASC')" class="order-icon desc hide"><i class="material-icons">arrow_upward</i></span>
+                <span *ngIf="!sortInfo('edition')" class="order-icon asc hide"><i class="material-icons">unfold_more</i></span>
+            </button></div>
+          </th>
+          <th width="1%" class="mat-header-cell"></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr class="math-row ng-star-inserted" *ngFor="let book of books">
+          <td class="mat-cell">{{book.id}}</td>
+          <td class="mat-cell">{{book.title}}</td>
+          <td class="mat-cell">{{book.author}}</td>
+          <td class="mat-cell">{{book.edition}}</td>
+          <td class="mat-cell"><button  class="mat-sort-header-button" (click)="removeBook(book.id)"><i class="material-icons">close</i></button></td>
+      </tr>
+      <tr class="math-row ng-star-inserted" >
+        <td class="mat-cell"><input placeholder="Id" [(ngModel)]="newBook.id" #ctrl="ngModel" required type="text" /></td>
+        <td class="mat-cell"><input placeholder="Título" [(ngModel)]="newBook.title" #ctrl="ngModel" required type="text" /></td>
+        <td class="mat-cell"><input placeholder="Autor" [(ngModel)]="newBook.author" #ctrl="ngModel" required type="text" /></td>
+        <td class="mat-cell"><input placeholder="Edição" [(ngModel)]="newBook.edition" #ctrl="ngModel" required type="text" /></td>
+        <td class="mat-cell"><button [disabled]="ctrl.valid.toString() == 'false'" class="mat-sort-header-button" (click)="addNewBook()"><i class="material-icons">add_circle</i></button></td>
+      </tr>
+  </tbody>
+</table>
+
+<div>
+<h3>Info:</h3>
+<p>Ordenação: {{sortString()}}</p>
+<p>Novo livro: {{ newBookString()  }}</p>
+<h3>Log:</h3>
+<p>{{ historicoString() }}</p>
+</div>
