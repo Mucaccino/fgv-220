@@ -1,37 +1,37 @@
-# FVG-220
+# FGV-220
 
-Projeto de teste para FGV - back-end + front-end + (interface spa consumindo serviÁo dll)
+Projeto de teste para FGV - back-end + front-end + (interface spa consumindo servi√ßo dll)
 Murillo Loureiro do Carmo <murillodocarmo@gmail.com>
 
 ## FVG-Core
 
-ContÈm o projeto C# compilando uma DLL com o n˙cleo do projeto
+Cont√©m o projeto C# compilando uma DLL com o n√∫cleo do projeto
 
 ## FVG-Console
 
-ContÈm um console com chamadas de testes
+Cont√©m um console com chamadas de testes
 
 ## FVG-Teste
 
-ContÈm os testes unut·rios do back-end em MSTest
+Cont√©m os testes unut√°rios do back-end em MSTest
 
 ## FVG-Front
 
-ContÈm o projeto em node.js para criaÁ„o e desenvolvimento da interface Angular (adicional aos documentos de casos de uso, citado apenas no email)
+Cont√©m o projeto em node.js para cria√ß√£o e desenvolvimento da interface Angular (adicional aos documentos de casos de uso, citado apenas no email)
 
 ### npm run build
 > gera a interface compilada em /dist/fullstack-app
 
 ## FVG-Web
 
-ContÈm o corpo para comunicaÁ„o entre a aplicaÁ„o angular e o serviÁo (conforme citado no e-mail, mesmo que abaixo indique como dica n„o criar uma webapi ou algo do tipo)
+Cont√©m o corpo para comunica√ß√£o entre a aplica√ß√£o angular e o servi√ßo (conforme citado no e-mail, mesmo que abaixo indique como dica n√£o criar uma webapi ou algo do tipo)
 
 ## FVG-WebSelfHost
 
-ContÈm projeto auxiliar com execut·vel que auto-hosteia o core e o front do projeto (a separaÁ„o entre web e webselfhost permite criar um host para iis baseado no web)
+Cont√©m projeto auxiliar com execut√°vel que auto-hosteia o core e o front do projeto (a separa√ß√£o entre web e webselfhost permite criar um host para iis baseado no web)
 
-> Necess·rio copiar manuamente o conte˙do compilado em /dist/fullstack-app para o diretÛrio de saÌda (~/bin/Debug/fullstack-app ou ~/bin/Release/fullstack-app)
+> Necess√°rio copiar manuamente o conte√∫do compilado em /dist/fullstack-app para o diret√≥rio de sa√≠da (~/bin/Debug/fullstack-app ou ~/bin/Release/fullstack-app)
 
 ## TODO
 
-* ao compilar o webselfhost copiar a pasta fullstack automaticamente para a saÌda
+* ao compilar o webselfhost copiar a pasta fullstack automaticamente para a sa√≠da
